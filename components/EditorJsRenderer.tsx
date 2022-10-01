@@ -1,10 +1,12 @@
-import { BlockToolData, OutputBlockData, OutputData } from "@editorjs/editorjs";
+import { OutputBlockData, OutputData } from "@editorjs/editorjs";
 import React from "react";
 import CodeRenderer from "./CodeRenderer";
+
 const editorJsHtml = require("editorjs-html");
+
 const EditorJsToHtml = editorJsHtml({
+  //replace the default code renderer with our custom code renderer
   code: (block: OutputBlockData<string>) => {
-    console.log(block);
     return <CodeRenderer code={block.data.code} />;
   },
 });

@@ -10,10 +10,29 @@ import EditorJsRenderer from "../components/EditorJsRenderer";
 const EditorBlock = dynamic(() => import("../components/Editor"), {
   ssr: false,
 });
-
+const initialData: OutputData = {
+  time: 1664631046512,
+  blocks: [
+    {
+      id: "i1HDCAxqng",
+      type: "code",
+      data: {
+        code: "#python\n\n# This program prints Hello, world!\nprint('Hello, world!')\n",
+      },
+    },
+    {
+      id: "S_oEvbfKfl",
+      type: "code",
+      data: {
+        code: "#css\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;\n}\n\n",
+      },
+    },
+  ],
+  version: "2.25.0",
+};
 const Home: NextPage = () => {
   //state to hold output data. we'll use this for rendering later
-  const [data, setData] = useState<OutputData>();
+  const [data, setData] = useState<OutputData>(initialData);
   return (
     <div className="grid grid-cols-2 gap-2">
       <div className="col-span-1 ">
